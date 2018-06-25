@@ -78,7 +78,7 @@ $logo = @"
 
 $label = @"  
                    PowerShell File Encryption Script  
-                    Resppnsible use only spermited
+                    Responsible use only spermited
 "@
 
 function Create-AESKey() {
