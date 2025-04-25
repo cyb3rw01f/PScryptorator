@@ -41,7 +41,7 @@ $logo = @"
 
 $label = @"  
                    PowerShell File Encryption Script  
-                    Responsible use only spermited
+                    Responsible use only permited
 "@
 
 function Create-AESKey() {
